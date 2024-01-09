@@ -29,29 +29,38 @@ Alpine Linux:
 - Mount your local .kube directory into /root/.kube
 - This will configure your kubectl config automatically
 
+### Windows
+
 ```sh
 docker run -it --rm -v C:/Users/wzink/.kube:/root/.kube -v C:/Work:/work -w /work --net host alpine:latest sh
 ```
 
+### Mac
+
+```sh
+docker run -it --rm -v ~/.kube:/root/.kube -v ~/Work:/work -w /work --net host alpine:latest sh
+```
+
 ### Install the following tools in the container
+
 Note: If running into SSL errors move from https into http
 command: `sed -ie "s/https/http/g" /etc/apk/repositories`
 
 1. Install Curl
-    ```sh
-    apk add --no-cache curl
-    ```
+
+   ```sh
+   apk add --no-cache curl
+   ```
 
 2. Install [kubectl](https://devcoops.com/install-kubectl-on-alpine-linux/#:~:text=Install%20Kubectl%20on%20Alpine%20Linux%201%20curl%20-LO,%2Bx%20.%2Fkubectl%204%20mv%20.%2Fkubectl%20%2Fusr%2Fbin%2Fkubectl%20Conclusion%20)
-    ```sh
-    curl -kLO https://storage.googleapis.com/kubernetes-release/release/$(curl -ks https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
-    ```
-    ```sh
-    chmod +x ./kubectl
-    ```
-    ```sh
-    mv ./kubectl /usr/bin/kubectl
-    ```
+
+   ```sh
+   curl -kLO https://storage.googleapis.com/kubernetes-release/release/$(curl -ks https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+
+   chmod +x ./kubectl
+
+   mv ./kubectl /usr/bin/kubectl
+   ```
 
 ### Run Kubectl command
 
