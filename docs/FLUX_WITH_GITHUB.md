@@ -22,3 +22,13 @@
         --path=fluxcd/clusters/local-kind \
         --personal
     ```
+
+4. Verify that flux is in place and working as expected
+
+```sh
+flux check
+
+# flux tools installed by flux
+kubectl -n flux-system get GitRepository
+kubectl -n flux-system get Kustomization
+```
