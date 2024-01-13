@@ -10,6 +10,12 @@
 - [That DevOps Guy (with Kind)](https://www.youtube.com/watch?v=X5W_706-jSY)
 - [Anais](https://www.youtube.com/watch?v=X5W_706-jSY)
 
+## Steps (for running locally)
+
+1. Install kind
+2. Install flux (cli)
+3. Bootstrap flux in a repository
+
 ## Install 'kind'
 
 Kind is available for install on all major package versions

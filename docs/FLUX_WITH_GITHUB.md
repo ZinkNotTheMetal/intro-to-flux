@@ -19,7 +19,7 @@
         --owner=zinknotthemetal \
         --repository=intro-to-flux \
         --branch=main \
-        --path=fluxcd/clusters/local-kind \
+        --path=fluxcd/clusters/local \
         --personal
     ```
 
