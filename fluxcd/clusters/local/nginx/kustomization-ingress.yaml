@@ -1,0 +1,22 @@
+# Now that the "global" elements of this deployment (Namespace and HelmRepository)
+#  have been defined, we do some "flux-ception", and go one layer deeper, adding another Kustomization,
+#  telling flux to deploy any YAMLs found in the repo at /nginx-ingress-controller
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: nginx-ingress-controller
+  namespace: flux-system
+spec:
+  interval: 15m
+  # path here!
+  path: ./nginx-ingress-controller
+  prune: true # remove any elements later removed from the above path
+  timeout: 2m # if not set, this defaults to interval duration, which is 1h
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: nginx-ingress-controller
+      namespace: nginx-ingress-controller
