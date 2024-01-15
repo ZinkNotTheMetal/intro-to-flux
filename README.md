@@ -108,3 +108,7 @@ chmod +x /usr/local/bin/flux
 ```sh
 flux check --pre
 ```
+
+### Next Steps
+
+- Go to docs/FLUX_WITH_GITHUB.md
